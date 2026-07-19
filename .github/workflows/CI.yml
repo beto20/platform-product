@@ -44,7 +44,7 @@ jobs:
         if-no-files-found: error
         retention-days: 1
 
-  publish image:
+  publish_image:
     needs: ["build"]
     runs-on: ubuntu-latest
     steps:
