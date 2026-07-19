@@ -69,18 +69,15 @@ jobs:
       - name: Push image
         run: docker push albertovs/platform-product:v1.0.0
 
-    deploy_ec2:
-      needs: ["publish_image"]
-      runs-on: ubuntu-latest
-      environment:
-        name: dev
-      steps:
-#        - uses: actions/checkout@v4
-
-        - name: Configure AWS Credentials
-          uses: aws-actions/configure-aws-credentials@v6.1.0
-          with:
-            aws-region: us-east-1
-#            role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
-            role-to-assume: arn:aws:iam::289170824875:user/test-gh
-            role-session-name: ${{ github.run_id }}
+  deploy_ec2:
+    needs: ["publish_image"]
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v6.1.0
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::289170824875:user/test-gh
+          role-session-name: ${{ github.run_id }}
