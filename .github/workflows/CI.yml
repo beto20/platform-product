@@ -85,4 +85,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           port: 22
-          script: whoami
+          script: |
+            whoami
+            sudo docker pull albertovs/platform-product:v1.0.0
+            sudo docker run -p 8082:8082 -d albertovs/platform-product:v1.0.0
