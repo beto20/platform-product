@@ -12,7 +12,9 @@ public class PlatformServiceImpl implements PlatformService {
     public List<PlatformResponse> getAll() {
         var dto1 = new PlatformResponse("demo", 2);
         var dto2 = new PlatformResponse("Maquina demo", 1);
+        var dto3 = new PlatformResponse("Monitoreo", 3);
+        var dto4 = new PlatformResponse("PaaS", 5);
 
-        return List.of(dto1, dto2);
+        return List.of(dto1, dto2, dto3, dto4);
     }
 }
