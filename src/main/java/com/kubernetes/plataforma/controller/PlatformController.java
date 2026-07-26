@@ -21,7 +21,4 @@ public class PlatformController {
     public List<PlatformResponse> getAll() {
         return platformService.getAll();
     }
-
-
-
 }
